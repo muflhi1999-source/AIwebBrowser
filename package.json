@@ -35,7 +35,8 @@
     "test-security": "cd src/brave && npm run test-security --",
     "test:scripts": "jest lib scripts --passWithNoTests",
     "update_patches": "cd src/brave && npm run update_patches --",
-    "versions": "cd src/brave && npm run versions --"
+    "versions": "cd src/brave && npm run versions --",
+    "ai:start": "node ./scripts/run-ai-browser.js"
   },
   "engines": {
     "node": ">=24.0.0 <25.0.0",
@@ -53,6 +54,8 @@
     }
   },
   "dependencies": {
-    "chalk": "4.1.2"
+    "chalk": "4.1.2",
+    "openai": "4.57.0",
+    "playwright": "1.47.2"
   }
 }

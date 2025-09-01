@@ -192,3 +192,37 @@ brave-browser> npm run apply_patches
 # Troubleshooting
 
 See [Troubleshooting](https://github.com/brave/brave-browser/wiki/Troubleshooting) for solutions to common problems.
+
+## AI Browser (experimental)
+
+This repository now includes a minimal multi‑agent browsing demo inspired by Comet‑style agentic browsing. It uses Playwright to drive a headless browser and OpenAI for planning and summarization.
+
+### Prerequisites
+
+- Node per engines in `package.json`
+- Install deps:
+
+```bash
+npm install
+```
+
+- Optional but recommended: set your OpenAI API key
+
+```bash
+export OPENAI_API_KEY=sk-...
+export OPENAI_MODEL=gpt-4o-mini   # optional
+```
+
+### Run
+
+```bash
+npm run ai:start -- "search query here"
+```
+
+The orchestrator composes three agents:
+
+- Planner (OpenAI): creates a short plan
+- Surfer (Playwright): searches and opens the first relevant result, extracts content
+- Summarizer (OpenAI): summarizes and emits `FINAL_ANSWER:`
+
+Outputs are printed as a transcript in the terminal. Headless browsing is enabled by default.
